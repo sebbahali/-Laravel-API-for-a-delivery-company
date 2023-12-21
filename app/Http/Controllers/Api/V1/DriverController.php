@@ -45,10 +45,7 @@ class DriverController extends Controller
      */
     public function update(DriverRequest $request, Driver $Driver)
     {
-        $user = auth()->guard('sanctum')->user();
-        if ($user->tokenCan('Driver:update')) {
-         return response()->json(['ali'=>'love u ']);
-        }
+      
        $Driver->update($request->validated());
 
         return new DriverResource($Driver);
